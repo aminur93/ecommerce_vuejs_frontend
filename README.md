@@ -10,15 +10,12 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### Project Description
+This is a E-commerce project. frontend build with vuejs
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Tools List
+- vue router
+- vuex
+- vue sweetalert
+- vuetify
+- chartjs
