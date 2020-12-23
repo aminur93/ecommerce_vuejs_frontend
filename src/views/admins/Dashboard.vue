@@ -127,6 +127,75 @@
                         </v-card-text>
                     </v-card>
                 </v-col>
+
+                <v-col cols="12" sm="4" md="3">
+                    <v-card color="orange">
+                        <v-card-title>
+                            Total Orders
+
+                            <v-row class="justify-end">
+                                <v-icon large> mdi-toaster-oven</v-icon>
+                            </v-row>
+                        </v-card-title>
+
+                        <v-card-text>
+                            <h1 class="headline">200</h1>
+
+                            <v-divider></v-divider>
+
+                            <v-row class="justify-center">
+                                <v-btn small class="mt-5 error" route to="/dashboard/blogpost"><v-icon> mdi-forwardburger</v-icon> G0</v-btn>
+                            </v-row>
+
+                        </v-card-text>
+                    </v-card>
+                </v-col>
+
+                <v-col cols="12" sm="4" md="3">
+                    <v-card color="yellow">
+                        <v-card-title>
+                            Total Customers
+
+                            <v-row class="justify-end">
+                                <v-icon large>  mdi-account-multiple</v-icon>
+                            </v-row>
+                        </v-card-title>
+
+                        <v-card-text>
+                            <h1 class="headline">2000</h1>
+
+                            <v-divider></v-divider>
+
+                            <v-row class="justify-center">
+                                <v-btn small class="mt-5 error" route to="/dashboard/blogpost"><v-icon> mdi-forwardburger</v-icon> G0</v-btn>
+                            </v-row>
+
+                        </v-card-text>
+                    </v-card>
+                </v-col>
+
+                <v-col cols="12" sm="4" md="3">
+                    <v-card color="red">
+                        <v-card-title>
+                            Total Sell
+
+                            <v-row class="justify-end">
+                                <v-icon large>mdi-currency-usd</v-icon>
+                            </v-row>
+                        </v-card-title>
+
+                        <v-card-text>
+                            <h1 class="headline">2000</h1>
+
+                            <v-divider></v-divider>
+
+                            <v-row class="justify-center">
+                                <v-btn small class="mt-5 error" route to="/dashboard/blogpost"><v-icon> mdi-forwardburger</v-icon> G0</v-btn>
+                            </v-row>
+
+                        </v-card-text>
+                    </v-card>
+                </v-col>
             </v-row>
         </v-container>
     </div>

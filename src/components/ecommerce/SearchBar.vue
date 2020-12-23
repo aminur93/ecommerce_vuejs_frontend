@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <v-toolbar flat  height="100px">
+        <v-app-bar flat height="100px" app>
 
             <v-row class="justify-end">
                 <v-col cols="2" class="mt-5">
@@ -13,7 +13,7 @@
                         <v-text-field
                                 dense
                                 solo
-                                label="Prepend"
+                                label="Search Products"
                                 prepend-inner-icon="mdi-magnify"
                         ></v-text-field>
 
@@ -25,7 +25,7 @@
                 </v-col>
             </v-row>
 
-        </v-toolbar>
+        </v-app-bar>
     </nav>
 </template>
 
@@ -36,5 +36,10 @@
 </script>
 
 <style scoped>
-
+    .fixed-bar {
+        position: sticky;
+        position: -webkit-sticky; /* for Safari */
+        top: 6em;
+        z-index: 2;
+    }
 </style>

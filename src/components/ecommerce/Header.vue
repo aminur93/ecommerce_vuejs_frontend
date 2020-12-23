@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <v-app-bar color="green" dense flat>
+        <v-app-bar color="green" dense flat app style="margin-top: 100px">
 
             <v-toolbar-title class="text-uppercase white--text">
                 <span class="font-weight-light">Easy</span>
@@ -94,6 +94,6 @@
 
 <style scoped>
 .v-menu__content.theme--light{
-    top: 48px !important;
+    top: 148px !important;
 }
 </style>

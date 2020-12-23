@@ -1,8 +1,9 @@
 <template>
     <v-app>
 
-        <Header />
         <search-bar/>
+
+        <Header />
 
         <main>
             <router-view></router-view>

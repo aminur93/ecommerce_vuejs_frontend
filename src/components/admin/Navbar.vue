@@ -134,5 +134,7 @@
 </script>
 
 <style scoped>
-
+    .v-menu__content.theme--light{
+        left: 990px !important;
+    }
 </style>
