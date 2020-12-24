@@ -48,6 +48,7 @@
                 <!--Start Main Content-->
                 <v-col cols="8">
 
+                    <!--Products Content Start-->
                     <div>
                         <v-card style="display: inline-block;margin-right: 5px" max-width="250" class="mb-5" v-for="item in products" :key="item.id">
                             <v-img class="white--text align-end" height="200px" :src="item.image"></v-img>
@@ -74,7 +75,9 @@
                             </v-card-actions>
                         </v-card>
                     </div>
+                    <!--Products Content end-->
 
+                    <!--Start Pagination-->
                     <div class="text-center">
                         <v-pagination
                             v-model="page"
@@ -83,6 +86,8 @@
                             next-icon="mdi-menu-right"
                         ></v-pagination>
                     </div>
+                    <!--End Pagination-->
+
                 </v-col>
                 <!--End Main Content-->
             </v-row>

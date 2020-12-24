@@ -121,7 +121,7 @@
                             <v-divider></v-divider>
 
                             <v-row class="justify-center">
-                                <v-btn small class="mt-5 error" route to="/dashboard/blogpost"><v-icon> mdi-forwardburger</v-icon> G0</v-btn>
+                                <v-btn small class="mt-5" color="blue" route to="/dashboard/blogpost"><v-icon> mdi-forwardburger</v-icon> G0</v-btn>
                             </v-row>
 
                         </v-card-text>
@@ -144,7 +144,7 @@
                             <v-divider></v-divider>
 
                             <v-row class="justify-center">
-                                <v-btn small class="mt-5 error" route to="/dashboard/blogpost"><v-icon> mdi-forwardburger</v-icon> G0</v-btn>
+                                <v-btn small class="mt-5" color="orange" route to="/dashboard/blogpost"><v-icon> mdi-forwardburger</v-icon> G0</v-btn>
                             </v-row>
 
                         </v-card-text>
@@ -167,7 +167,7 @@
                             <v-divider></v-divider>
 
                             <v-row class="justify-center">
-                                <v-btn small class="mt-5 error" route to="/dashboard/blogpost"><v-icon> mdi-forwardburger</v-icon> G0</v-btn>
+                                <v-btn small class="mt-5" color="yellow" route to="/dashboard/blogpost"><v-icon> mdi-forwardburger</v-icon> G0</v-btn>
                             </v-row>
 
                         </v-card-text>
@@ -190,7 +190,7 @@
                             <v-divider></v-divider>
 
                             <v-row class="justify-center">
-                                <v-btn small class="mt-5 error" route to="/dashboard/blogpost"><v-icon> mdi-forwardburger</v-icon> G0</v-btn>
+                                <v-btn small class="mt-5" color="red" route to="/dashboard/blogpost"><v-icon> mdi-forwardburger</v-icon> G0</v-btn>
                             </v-row>
 
                         </v-card-text>

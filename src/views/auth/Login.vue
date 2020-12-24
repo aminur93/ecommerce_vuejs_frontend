@@ -11,10 +11,10 @@
                         <v-divider></v-divider>
 
                         <v-card-text>
-                            <v-form>
-                                <v-text-field label="Email" prepend-icon="mdi-email"></v-text-field>
+                            <v-form v-on:submit.prevent="login">
+                                <v-text-field type="text" v-model="loginData.email" label="Email" prepend-icon="mdi-email"></v-text-field>
 
-                                <v-text-field label="Password" prepend-icon="mdi-lock"></v-text-field>
+                                <v-text-field type="password" v-model="loginData.password" label="Password" prepend-icon="mdi-lock"></v-text-field>
 
                                 <v-row>
                                     <v-col col="12" sm="6" md="8" class="mt-2">
@@ -22,7 +22,7 @@
                                     </v-col>
 
                                     <v-col col="4" md="4">
-                                        <v-btn color="success float-right">Login</v-btn>
+                                        <v-btn type="submit" color="success float-right">Login</v-btn>
                                     </v-col>
 
                                 </v-row>
@@ -38,9 +38,35 @@
 </template>
 
 <script>
+
     export default {
         name: "Login",
         title: "Ecommerce - login",
+        data(){
+            return{
+                loginData: {
+                    email: '',
+                    password: ''
+                }
+            }
+        },
+
+        methods: {
+            login: async function(){
+                try {
+                    let formData = new FormData();
+                    formData.append('email', this.loginData.email);
+                    formData.append('password', this.loginData.password);
+
+                    await this.$store.dispatch('login', formData).then(() => {
+                        this.$router.push({ path: '/dashboard' });
+                        this.loginData = {};
+                    })
+                }catch (e) {
+                    console.log(e);
+                }
+            }
+        },
     }
 </script>
 

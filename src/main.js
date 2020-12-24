@@ -13,6 +13,8 @@ Vue.mixin(titleMixins);
 
 Vue.config.productionTip = false;
 
+store.dispatch('attempt', localStorage.getItem('token'));
+
 new Vue({
   vuetify,
   router,

@@ -30,7 +30,7 @@
             </v-menu>
             <!--end DropDown Menu-->
 
-            <v-btn text color="grey">
+            <v-btn text color="grey" v-on:click="logout">
                 <span>Sign out</span>
                 <v-icon right>mdi-exit-to-app</v-icon>
             </v-btn>
@@ -44,7 +44,7 @@
                     <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
                 </v-list-item-avatar>
 
-                <v-list-item-title>John Leider</v-list-item-title>
+                <v-list-item-title v-if="authenticated">{{ userInfo.name }}</v-list-item-title>
 
                 <v-btn icon @click.stop="mini = !mini">
                     <v-icon>mdi-chevron-left</v-icon>
@@ -95,6 +95,8 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex';
+
     export default {
         name: "Navbar",
         data () {
@@ -129,6 +131,28 @@
                 ],
 
             }
+        },
+
+        computed: {
+            ...mapGetters({
+                authenticated: 'authenticated',
+                userInfo: 'userInfo',
+            })
+        },
+
+        methods: {
+            logout: async function(){
+
+                try {
+                    await this.$store.dispatch('logout').then(() => {
+                        this.$router.push({ path: '/login' });
+                    });
+
+                }catch (e) {
+                    console.log(e);
+                }
+
+            },
         },
     }
 </script>

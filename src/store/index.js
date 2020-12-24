@@ -16,6 +16,7 @@ export default new Vuex.Store({
     getters,
     mutations,
     actions,
+
     modules:{
         category
     }
