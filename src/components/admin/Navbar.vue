@@ -56,7 +56,7 @@
 
             <v-list>
 
-                <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
+                <v-list-item v-for="link in links" :key="link.text" router :to="link.route" exact>
 
                     <v-list-item-action>
                         <v-icon class="font-weight-bold">{{ link.icon }}</v-icon>
@@ -106,8 +106,14 @@
                 items: [
                     {
                         action: 'mdi-clipboard-list',
-                        items: [{ icon: 'mdi-format-list-bulleted ', title: 'Category',route:'/dashboard/category' }],
+                        items: [{ icon: 'mdi-format-list-bulleted', title: 'Category',route:'/dashboard/category' }],
                         title: 'Category',
+                    },
+
+                    {
+                        action: ' mdi-clipboard-list-outline',
+                        items: [{ icon: 'mdi-view-list', title: 'Sub-Category',route:'/dashboard/sub_category' }],
+                        title: 'SUb Category',
                     },
 
                     {
@@ -119,6 +125,7 @@
                         ],
                         title: 'User Management',
                     },
+
                 ],
 
                 links: [

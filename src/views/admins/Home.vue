@@ -21,6 +21,7 @@
 
     export default {
         name: "Home",
+        title: "Dashboard",
         components: {
             Navbar
         }
