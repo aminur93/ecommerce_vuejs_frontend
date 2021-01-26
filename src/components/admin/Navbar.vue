@@ -113,7 +113,19 @@
                     {
                         action: ' mdi-clipboard-list-outline',
                         items: [{ icon: 'mdi-view-list', title: 'Sub-Category',route:'/dashboard/sub_category' }],
-                        title: 'SUb Category',
+                        title: 'Sub Category',
+                    },
+
+                    {
+                        action: 'mdi-bag-checked',
+                        items: [{ icon: 'mdi-bag-personal', title: 'Brand',route:'/dashboard/brand' }],
+                        title: 'Brand',
+                    },
+
+                    {
+                        action: ' mdi-tag-faces',
+                        items: [{ icon: ' mdi-tag ', title: 'Tag',route:'/dashboard/tag' }],
+                        title: 'Tag',
                     },
 
                     {

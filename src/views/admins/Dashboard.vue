@@ -203,7 +203,8 @@
 
 <script>
     export default {
-        name: "Dashboard"
+        name: "Dashboard",
+        title: "Dashboard - Home"
     }
 </script>
 

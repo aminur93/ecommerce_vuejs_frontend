@@ -1,26 +1,27 @@
 <template>
-    <div id="category">
+    <div id="sub_category">
 
         <v-container class="my-5">
 
             <v-row wrap>
                 <v-col cols="6">
-                    <h1 class="subtitle-1 grey--text">Welcome Category</h1>
+                    <h1 class="subtitle-1 grey--text">Welcome Sub Category</h1>
                 </v-col>
             </v-row>
 
             <v-row wrap>
                 <v-col cols="12">
+
                     <v-card>
 
                         <v-row>
                             <v-col col="6">
-                                <v-card-title>Category List</v-card-title>
+                                <v-card-title>Sub Category List</v-card-title>
                             </v-col>
 
                             <v-col cols="6">
                                 <v-card-actions class="justify-end">
-                                    <v-btn text color="success" router to="/dashboard/add_category">
+                                    <v-btn text color="success" router to="/dashboard/add_sub_category">
                                         <v-icon small left>mdi-plus</v-icon>
                                         <span>Add New</span>
                                     </v-btn>
@@ -33,7 +34,7 @@
                         <v-card-text>
 
                             <v-card-title>
-                                All Category List
+                                All Sub Category List
                                 <v-spacer></v-spacer>
 
                                 <v-text-field
@@ -46,13 +47,13 @@
                                 ></v-text-field>
                             </v-card-title>
 
-                            <v-data-table :headers="headers" :items="categories" :search="search"  class="elevation-1">
+                            <v-data-table :headers="headers" :items="subCategories" :search="search"  class="elevation-1">
 
                                 <template v-slot:item.actions="{ item }">
 
                                     <v-tooltip top>
                                         <template v-slot:activator="{ on }">
-                                            <v-btn small text color="grey" v-on="on" router :to="`/dashboard/edit_category/${item.id}`">
+                                            <v-btn small text color="grey" v-on="on" router :to="`/dashboard/edit_sub_category/${item.id}`">
                                                 <v-icon left small>mdi-pencil</v-icon>
                                                 <span right class="caption text-lowercase">Edit</span>
                                             </v-btn>
@@ -62,7 +63,7 @@
 
                                     <v-tooltip top>
                                         <template v-slot:activator="{ on }">
-                                            <v-btn small text color="grey" v-on="on" @click="deleteCategory(item.id)">
+                                            <v-btn small text color="grey" v-on="on" @click="deleteSubCategory(item.id)">
                                                 <v-icon left small>mdi-delete</v-icon>
                                                 <span right class="caption text-lowercase">Delete</span>
                                             </v-btn>
@@ -76,6 +77,7 @@
                         </v-card-text>
 
                     </v-card>
+
                 </v-col>
             </v-row>
         </v-container>
@@ -86,12 +88,12 @@
     import {mapState, mapActions} from 'vuex';
 
     export default {
-        name: "Category",
-        title: "Dashboard - Category",
+        name: "sub_category",
+        title: 'Dashboard - Sub category',
 
         data(){
             return{
-                search: '',
+                search: ''
             }
         },
 
@@ -100,36 +102,37 @@
                 return [
                     {text: '#Sl', value:'id',  align: 'start', sortable: false},
                     {text: 'Category Name', value:'cat_name'},
+                    {text: 'Sub Category Name', value:'sub_cat_name'},
                     {text: 'Actions', value: 'actions', align: 'center', sortable: false },
                 ]
             },
 
             ...mapState({
-                categories: state => state.category.categories
+                subCategories: state => state.subCategory.sub_categories
             })
         },
 
         mounted(){
-            this.getCategory();
+            this.getSubCategory();
         },
 
         methods: {
             ...mapActions({
-                 getCategory: 'category/get_categories'
+                getSubCategory: 'subCategory/get_subCategories'
             }),
 
-            deleteCategory: async function(id){
+            deleteSubCategory: async function(id){
                 try {
-                    await this.$store.dispatch('category/delete_category', id).then(() => {
+                    await this.$store.dispatch('subCategory/delete_subCategory', id).then(() => {
                         this.$swal.fire({
                             toast: true,
                             position: 'top-end',
                             icon: 'success',
-                            title: 'Category Deleted Successful',
+                            title: 'Sub Category Deleted Successful',
                             showConfirmButton: false,
                             timer: 1500
                         });
-                        this.getCategory();
+                        this.getSubCategory();
                     });
                 }catch (e) {
                     console.log(e);

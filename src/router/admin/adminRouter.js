@@ -3,6 +3,8 @@ import Home from '../../views/admins/Home.vue';
 
 //routes import
 import categoryRoute from './categoryRouter';
+import subCategoryRoute from './sub_categoryRouter';
+import BrandRoute from './brand';
 
 export default [
     {
@@ -15,7 +17,12 @@ export default [
                 component: () => import('../../views/admins/Dashboard.vue')
             },
 
-            ...categoryRoute
+            ...categoryRoute,
+
+            ...subCategoryRoute,
+
+            ...BrandRoute
+
         ],
         beforeEnter(to, from, next){
             if (!store.getters['AuthToken']){

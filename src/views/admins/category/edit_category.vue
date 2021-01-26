@@ -2,6 +2,7 @@
     <div id="edit_category">
 
         <v-container class="my-5">
+
             <v-row wrap>
                 <v-col cols="6">
                     <h1 class="subtitle-1 grey--text">Edit category</h1>

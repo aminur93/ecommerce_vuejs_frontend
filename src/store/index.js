@@ -10,6 +10,7 @@ import * as actions from './actions';
 
 // Modules import
 import category from './modules/category';
+import subCategory from './modules/sub_category';
 
 export default new Vuex.Store({
     state,
@@ -18,6 +19,7 @@ export default new Vuex.Store({
     actions,
 
     modules:{
-        category
+        category,
+        subCategory
     }
 });
