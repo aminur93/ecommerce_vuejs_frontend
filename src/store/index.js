@@ -11,6 +11,8 @@ import * as actions from './actions';
 // Modules import
 import category from './modules/category';
 import subCategory from './modules/sub_category';
+import brand from './modules/brand';
+import tag from './modules/tag';
 
 export default new Vuex.Store({
     state,
@@ -20,6 +22,8 @@ export default new Vuex.Store({
 
     modules:{
         category,
-        subCategory
+        subCategory,
+        brand,
+        tag
     }
 });

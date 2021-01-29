@@ -1,28 +1,27 @@
 <template>
-    <div id="edit_brand">
-
+    <div id="add_tag">
         <v-container class="my-5">
 
             <v-row wrap>
                 <v-col cols="6">
-                    <h1 class="subtitle-1 grey--text">Edit Brand</h1>
+                    <h1 class="subtitle-1 grey--text">Add Tag</h1>
                 </v-col>
             </v-row>
 
             <v-row>
                 <v-col cols="12">
                     <v-card>
-                        <v-card-title>Edit Brand</v-card-title>
+                        <v-card-title>Add Tag</v-card-title>
 
                         <v-divider></v-divider>
 
                         <v-card-text>
-                            <v-form v-on:submit.prevent="updateBrand">
-                                <v-text-field type="text" v-model="editBrand.brand_name" label="Brand name"></v-text-field>
-                                <span v-if="errors.brand_name" class="red--text">{{errors.brand_name[0]}}</span>
+                            <v-form v-on:submit.prevent="addTag">
+                                <v-text-field type="text" v-model="tagData.tag_name" label="Tag name"></v-text-field>
+                                <span v-if="errors.tag_name" class="red--text">{{errors.tag_name[0]}}</span>
 
                                 <v-row class="justify-end">
-                                    <v-btn text  class="info mr-2" router to="/dashboard/brand">Back</v-btn>
+                                    <v-btn text  class="info mr-2" router to="/dashboard/tag">Back</v-btn>
                                     <v-btn text type="submit" class="success mr-2">Submit</v-btn>
                                 </v-row>
                             </v-form>
@@ -35,40 +34,35 @@
 </template>
 
 <script>
-    import {mapState, mapActions} from 'vuex';
+    import {mapState} from 'vuex';
 
     export default {
-        name: "edit_brand",
-        title: "DashBoard - Edit Brand",
+        name: "add_tag",
+        title: "DashBoard - Add Tag",
         data(){
             return{
+                tagData: {
+                    tag_name: ''
+                },
+
                 errors: {}
             }
         },
 
         computed: {
             ...mapState({
-                editBrand: state => state.brand.brand,
-                message: state => state.brand.success_message
+                message: state => state.tag.success_message
             })
-        },
 
-        mounted(){
-            this.getEditBrand(this.$route.params.id);
         },
 
         methods: {
-            ...mapActions({
-                'getEditBrand': 'brand/edit_brand'
-            }),
-
-            updateBrand: async function(){
+            addTag: async function(){
                 try {
-                    let id = this.$route.params.id;
                     let formData = new FormData();
-                    formData.append('brand_name', this.editBrand.brand_name);
+                    formData.append('tag_name', this.tagData.tag_name);
 
-                    await this.$store.dispatch('brand/update_brand', {id:id, data:formData}).then(() => {
+                    await this.$store.dispatch('tag/add_tag', formData).then(()=>{
                         this.$swal.fire({
                             toast: true,
                             position: 'top-end',
@@ -77,6 +71,8 @@
                             showConfirmButton: false,
                             timer: 1500
                         });
+
+                        this.tagData = {}
                     })
                 }catch (error) {
                     switch (error.response.status)
@@ -89,7 +85,7 @@
                             this.$swal.fire({
                                 icon: 'error',
                                 text: 'Oops',
-                                title: error.response.data.message,
+                                title: error.response.data.error,
                             });
                             break;
                     }

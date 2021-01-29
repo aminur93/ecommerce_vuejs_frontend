@@ -5,6 +5,7 @@ import Home from '../../views/admins/Home.vue';
 import categoryRoute from './categoryRouter';
 import subCategoryRoute from './sub_categoryRouter';
 import BrandRoute from './brand';
+import TagRoute from './tagRouter';
 
 export default [
     {
@@ -21,7 +22,9 @@ export default [
 
             ...subCategoryRoute,
 
-            ...BrandRoute
+            ...BrandRoute,
+
+            ...TagRoute
 
         ],
         beforeEnter(to, from, next){
