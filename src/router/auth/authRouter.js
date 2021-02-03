@@ -14,5 +14,33 @@ export default [
                 next('/dashboard');
             }
         }
+    },
+
+    {
+        path: '/forget-password',
+        name: 'ForgetPassword',
+        component: () => import('../../views/auth/ForgetPassword.vue'),
+        beforeEnter(to, from, next){
+            if(!store.state.token)
+            {
+                next();
+            }else {
+                next('/dashboard');
+            }
+        }
+    },
+
+    {
+        path: '/reset-password',
+        name: 'ResetPassword',
+        component: () => import('../../views/auth/ResetPassword.vue'),
+        beforeEnter(to, from, next){
+            if(!store.state.token)
+            {
+                next();
+            }else {
+                next('/dashboard');
+            }
+        }
     }
 ]

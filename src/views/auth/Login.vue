@@ -12,9 +12,11 @@
 
                         <v-card-text>
                             <v-form v-on:submit.prevent="login">
-                                <v-text-field type="text" v-model="loginData.email" label="Email" prepend-icon="mdi-email"></v-text-field>
+                                <v-text-field type="email" v-model="loginData.email" label="Email" prepend-icon="mdi-email"></v-text-field>
+                                <span v-if="errors.email" class="red--text">{{errors.email[0]}}</span>
 
                                 <v-text-field type="password" v-model="loginData.password" label="Password" prepend-icon="mdi-lock"></v-text-field>
+                                <span v-if="errors.password" class="red--text">{{errors.password[0]}}</span>
 
                                 <v-row>
                                     <v-col col="12" sm="6" md="8" class="mt-2">
@@ -41,13 +43,15 @@
 
     export default {
         name: "Login",
-        title: "Ecommerce - login",
+        title: "Ecommerce - Admin login",
         data(){
             return{
                 loginData: {
                     email: '',
                     password: ''
-                }
+                },
+
+                errors: {},
             }
         },
 
@@ -63,7 +67,20 @@
                         this.loginData = {};
                     })
                 }catch (e) {
-                    console.log(e);
+                    switch (e.response.status)
+                    {
+                        case 422:
+                            this.errors = e.response.data.errors;
+                            break;
+
+                        default:
+                            this.$swal.fire({
+                                icon: 'error',
+                                text: 'Oops',
+                                title: e.response.data.error,
+                            });
+                            break;
+                    }
                 }
             }
         },

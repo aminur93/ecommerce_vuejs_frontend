@@ -177,7 +177,7 @@
 </script>
 
 <style scoped>
-    .v-menu__content.theme--light{
-        left: 990px !important;
-    }
+    /*.v-menu__content.theme--light{*/
+        /*left: 995px !important;*/
+    /*}*/
 </style>
