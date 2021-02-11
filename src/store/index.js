@@ -13,6 +13,10 @@ import category from './modules/category';
 import subCategory from './modules/sub_category';
 import brand from './modules/brand';
 import tag from './modules/tag';
+import color from './modules/color';
+import size from './modules/size';
+import origin from './modules/origin';
+import material from './modules/material';
 
 export default new Vuex.Store({
     state,
@@ -24,6 +28,10 @@ export default new Vuex.Store({
         category,
         subCategory,
         brand,
-        tag
+        tag,
+        color,
+        size,
+        origin,
+        material
     }
 });

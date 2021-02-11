@@ -40,6 +40,8 @@
 </template>
 
 <script>
+    import {mapState} from 'vuex';
+
     export default {
         name: "ResetPassword",
         title: "Ecommerce - Admin Reset Password",
@@ -48,12 +50,62 @@
                 resetData: {
                     email: '',
                     password: '',
-                    password_confirmation: ''
+                    password_confirmation: '',
+                    resetToken: '',
                 },
 
                 errors: {}
             }
         },
+
+        computed: {
+            ...mapState({
+                message: state => state.success_message
+            })
+        },
+
+        methods: {
+            resetPassword: async function(){
+                try {
+                    this.resetData.resetToken = this.$route.query.token;
+
+                    let formData = new FormData();
+                    formData.append('email', this.resetData.email);
+                    formData.append('password', this.resetData.password);
+                    formData.append('password_confirmation', this.resetData.password_confirmation);
+                    formData.append('resetToken', this.resetData.resetToken);
+
+                    await this.$store.dispatch('resetPassword', formData).then(()=>{
+                        this.$swal.fire({
+                            toast: true,
+                            position: 'top-end',
+                            icon: 'success',
+                            title: this.message,
+                            showConfirmButton: false,
+                            timer: 2500
+                        });
+
+                        this.$router.push({ path: '/login' });
+                    })
+                    this.resetData = {};
+                }catch (e) {
+                    switch (e.response.status)
+                    {
+                        case 422:
+                            this.errors = e.response.data.errors;
+                            break;
+
+                        default:
+                            this.$swal.fire({
+                                icon: 'error',
+                                text: 'Oops',
+                                title: e.response.data.error,
+                            });
+                            break;
+                    }
+                }
+            }
+        }
     }
 </script>
 

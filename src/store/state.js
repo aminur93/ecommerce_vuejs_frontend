@@ -3,5 +3,7 @@ export default {
     serverPath: 'http://localhost:8000',
 
     token: null,
-    user: null
+    user: null,
+
+    success_message: ''
 }

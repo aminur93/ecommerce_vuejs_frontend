@@ -6,6 +6,7 @@ import categoryRoute from './categoryRouter';
 import subCategoryRoute from './sub_categoryRouter';
 import BrandRoute from './brand';
 import TagRoute from './tagRouter';
+import ProductRoute from './productRouter';
 
 export default [
     {
@@ -24,7 +25,9 @@ export default [
 
             ...BrandRoute,
 
-            ...TagRoute
+            ...TagRoute,
+
+            ...ProductRoute
 
         ],
         beforeEnter(to, from, next){

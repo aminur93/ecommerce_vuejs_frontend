@@ -4,10 +4,12 @@ import vuetify from './plugins/vuetify';
 import router from './router';
 import store from './store';
 
+//sweet alert import
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 Vue.use(VueSweetalert2);
 
+//mixins import
 import titleMixins from './mixins/titleMixins';
 Vue.mixin(titleMixins);
 

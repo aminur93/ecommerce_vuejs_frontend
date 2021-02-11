@@ -129,6 +129,18 @@
                     },
 
                     {
+                        action: 'mdi-store',
+                        items: [
+                            { icon: 'mdi-shopping', title: 'Products',route:'/dashboard/product' },
+                            { icon: 'mdi-palette', title: 'Color',route:'/dashboard/color' },
+                            { icon: 'mdi-move-resize-variant', title: 'Size',route:'/dashboard/size' },
+                            { icon: 'mdi-origin', title: 'Origin',route:'/dashboard/origin' },
+                            { icon: 'mdi-material-ui', title: 'Materials',route:'/dashboard/material' },
+                        ],
+                        title: 'Products',
+                    },
+
+                    {
                         action: 'mdi-account-cog',
                         items: [
                             { icon: 'mdi-account', title: 'users', route:'/dashboard/user'},

@@ -38,6 +38,8 @@
 </template>
 
 <script>
+    import {mapState} from 'vuex';
+
     export default {
         name: "ForgetPassword",
         title: "Ecommerce - Admin Forget Password",
@@ -51,9 +53,48 @@
             }
         },
 
+        computed: {
+            ...mapState({
+                message: state => state.success_message
+            })
+        },
+
         methods: {
             forgetPassword: async function(){
+                try{
 
+                    let formdata = new FormData();
+                    formdata.append('email', this.forgetData.email);
+
+                    await this.$store.dispatch('forgetPassword', formdata).then(() => {
+
+                        this.$swal.fire({
+                            toast: true,
+                            position: 'top-end',
+                            icon: 'success',
+                            title: this.message,
+                            showConfirmButton: false,
+                            timer: 2500
+                        });
+
+                        this.forgetData = {};
+                    })
+                }catch(e) {
+                    switch (e.response.status)
+                    {
+                        case 422:
+                            this.errors = e.response.data.errors;
+                            break;
+
+                        default:
+                            this.$swal.fire({
+                                icon: 'error',
+                                text: 'Oops',
+                                title: e.response.data.error,
+                            });
+                            break;
+                    }
+                }
             },
         },
     }

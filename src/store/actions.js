@@ -42,3 +42,15 @@ export const logout = ({commit}) => {
             localStorage.removeItem('token');
         });
 };
+
+export const forgetPassword = ({commit}, data) => {
+    return http().post('/auth/forgetPassword', data).then(res => {
+        commit('FORGET_PASSWORD', res.data.message)
+    })
+};
+
+export const resetPassword = ({commit}, data) => {
+    return http().post('/auth/changePassword', data).then(res => {
+        commit('RESET_PASSWORD', res.data.message);
+    })
+};
