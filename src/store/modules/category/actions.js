@@ -1,7 +1,7 @@
 import {http} from "../../../apiServices/http_services";
 
 export const get_categories = ({commit}) => {
-    return http().get('/category').then((response) => {
+    return http().get('category').then((response) => {
         commit('SET_CATEGORY', response.data.categories);
     });
 };

@@ -17,6 +17,7 @@ import color from './modules/color';
 import size from './modules/size';
 import origin from './modules/origin';
 import material from './modules/material';
+import product from './modules/product';
 
 export default new Vuex.Store({
     state,
@@ -32,6 +33,7 @@ export default new Vuex.Store({
         color,
         size,
         origin,
-        material
+        material,
+        product
     }
 });

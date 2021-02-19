@@ -13,6 +13,10 @@ Vue.use(VueSweetalert2);
 import titleMixins from './mixins/titleMixins';
 Vue.mixin(titleMixins);
 
+//text editor
+import Vue2Editor from "vue2-editor";
+Vue.use(Vue2Editor);
+
 Vue.config.productionTip = false;
 
 store.dispatch('attempt', localStorage.getItem('token'));

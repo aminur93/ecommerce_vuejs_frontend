@@ -8,6 +8,18 @@ export default [
     },
 
     {
+        path: 'add_product',
+        name: 'add_product',
+        component: () => import('../../views/admins/products/add_product.vue')
+    },
+
+    {
+        path: 'edit_product/:id',
+        name: 'edit_product',
+        component: () => import('../../views/admins/products/edit_product.vue')
+    },
+
+    {
         path: 'color',
         name: 'color',
         component: () => import('../../views/admins/products/color/color.vue')
