@@ -20,6 +20,24 @@ export default [
     },
 
     {
+        path: 'product_image/:id',
+        name: 'Product_image',
+        component: () => import('../../views/admins/products/image/ProductImage.vue')
+    },
+
+    {
+        path: 'add_product_image/:id',
+        name: 'add_ProductImage',
+        component: () => import('../../views/admins/products/image/add_ProductImage.vue')
+    },
+
+    {
+        path: 'edit_product_image/:id/:image_id',
+        name: 'edit_ProductImage',
+        component: () => import('../../views/admins/products/image/edit_ProductImage.vue')
+    },
+
+    {
         path: 'color',
         name: 'color',
         component: () => import('../../views/admins/products/color/color.vue')

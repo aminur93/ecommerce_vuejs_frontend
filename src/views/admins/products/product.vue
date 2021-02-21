@@ -62,11 +62,11 @@
                                 </template>
 
                                 <template v-slot:item.approve="{item}">
-                                    <v-switch v-on:click="approve(item)" hide-details></v-switch>
+                                    <v-switch :input-value="item.approve === 1 ? true : false" @click="approve(item.id)" hide-details></v-switch>
                                 </template>
 
                                 <template v-slot:item.publish="{item}">
-                                    <v-switch v-on:click="publish(item)" hide-details></v-switch>
+                                    <v-switch :input-value="item.publish === 1 ? true : false" @click="publish(item.id)" hide-details></v-switch>
                                 </template>
 
                                 <template v-slot:item.actions="{ item }">
@@ -103,7 +103,7 @@
 
                                     <v-tooltip top>
                                         <template v-slot:activator="{ on }">
-                                            <v-btn small text color="grey" v-on="on" router :to="`/dashboard/image/${item.id}`">
+                                            <v-btn small text color="grey" v-on="on" router :to="`/dashboard/product_image/${item.id}`">
                                                 <v-icon left small>mdi-image</v-icon>
                                                 <span right class="caption text-lowercase">Image</span>
                                             </v-btn>
@@ -176,6 +176,48 @@
                 try {
 
                     await this.$store.dispatch('product/feature',id).then(() => {
+                        this.$swal.fire({
+                            toast: true,
+                            position: 'top-end',
+                            icon: 'success',
+                            title: this.message,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    })
+                }catch (e) {
+                    this.$swal.fire({
+                        icon: 'error',
+                        text: 'Oops',
+                        title: e.response.data.error,
+                    });
+                }
+            },
+
+            approve: async function(id){
+                try {
+                    await this.$store.dispatch('product/approve', id).then(() => {
+                        this.$swal.fire({
+                            toast: true,
+                            position: 'top-end',
+                            icon: 'success',
+                            title: this.message,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    })
+                }catch (e) {
+                    this.$swal.fire({
+                        icon: 'error',
+                        text: 'Oops',
+                        title: e.response.data.error,
+                    });
+                }
+            },
+
+            publish: async function(id){
+                try {
+                    await this.$store.dispatch('product/publish', id).then(() => {
                         this.$swal.fire({
                             toast: true,
                             position: 'top-end',
