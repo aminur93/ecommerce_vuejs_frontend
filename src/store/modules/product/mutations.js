@@ -72,3 +72,7 @@ export const PRODUCT_IMAGE_CREATE = (state, data) => {
         state.success_message = '';
     }
 };
+
+export const PRODUCT_IMAGE_EDIT = (state, data) => {
+    state.product_image = data;
+};

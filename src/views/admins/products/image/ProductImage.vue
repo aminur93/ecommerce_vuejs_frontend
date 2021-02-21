@@ -71,9 +71,6 @@
                                         </v-col>
                                     </v-row>
 
-
-
-
                                 </template>
 
                                 <template v-slot:item.image="{item}">
@@ -90,7 +87,7 @@
 
                                     <v-tooltip top>
                                         <template v-slot:activator="{ on }">
-                                            <v-btn small text color="grey" v-on="on" router :to="`/dashboard/edit_color/${item.id}`">
+                                            <v-btn small text color="grey" v-on="on" router :to="`/dashboard/edit_product_image/${item.id}`">
                                                 <v-icon left small>mdi-pencil</v-icon>
                                                 <span right class="caption text-lowercase">Edit</span>
                                             </v-btn>
@@ -163,6 +160,26 @@
                 let server_Path = this.$store.state.serverPath;
                 return server_Path + "/assets/admin/uploads/small/"+img;
             },
+
+            deleteProductImage: async function(id){
+                try {
+                    let product_id = this.$route.params.id;
+                    await this.$store.dispatch('product/delete_product_image', {id:id, product_id:product_id}).then(() => {
+                        this.$swal.fire({
+                            toast: true,
+                            position: 'top-end',
+                            icon: 'success',
+                            title: this.message,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+
+                        this.getProductImages(product_id);
+                    })
+                }catch (e) {
+                    console.log(e);
+                }
+            }
         },
     }
 </script>

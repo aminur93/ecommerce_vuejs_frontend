@@ -32,7 +32,7 @@ export default [
     },
 
     {
-        path: 'edit_product_image/:id/:image_id',
+        path: 'edit_product_image/:image_id',
         name: 'edit_ProductImage',
         component: () => import('../../views/admins/products/image/edit_ProductImage.vue')
     },

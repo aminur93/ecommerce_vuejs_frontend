@@ -65,3 +65,9 @@ export const add_product_image = ({commit}, data) => {
         commit('PRODUCT_IMAGE_CREATE', res.data);
     })
 };
+
+export const edit_product_image = ({commit}, id) => {
+    return http().get(`product/image/edit/${id}`).then(res => {
+        commit('PRODUCT_IMAGE_EDIT', res.data.product_image);
+    })
+};
